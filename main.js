@@ -12,17 +12,17 @@ const attendnum = program.args[0];
 let headless = true;
 if (program.view) {
   headless = false;
-  if (program.debug) { console.log('Non Headless Mode'); }
+  if (program.debug) { console.log('INFO: Non Headless Mode'); }
 }
 
 let username = '';
 let password = '';
 if (process.env.UTID_13 && process.env.UTID_PASS) {
-  if (program.debug) { console.log('Using UTID_13'); }
+  if (program.debug) { console.log('INFO: Using UTID_13'); }
   username = process.env.UTID_13;
   password = process.env.UTID_PASS;
 } else if (process.env.MANABA_USERNAME && process.env.MANABA_PASSWORD) {
-  if (program.debug) { console.log('Using MANABA_USERNAME'); }
+  if (program.debug) { console.log('INFO: Using MANABA_USERNAME'); }
   username = process.env.MANABA_USERNAME;
   password = process.env.MANABA_PASSWORD;
 } else {
@@ -45,18 +45,21 @@ if (process.env.UTID_13 && process.env.UTID_PASS) {
     const out = await page.evaluate(() => document.querySelector('.errmsg').innerText);
     console.log(out);
   } else if (await page.$$eval('input', inputs => inputs.length) == 2) {
-    console.log('Correct number');
-    await page.type('input[id="username"]', username);
-    await page.type('input[id="password"[', password);
-    await page.click('input[type="submit"]');
+    if (program.debug) { console.log('INFO: attend number successfully received.'); }
+    await page.type('input#username', username);
+    await page.type('input#password', password);
+    await page.click('button[type="submit"]');
 
     // Wait for the result and show in terminal.
-    await page.waitFor('.description, .errmsg');  // wait for .description or .errmsg.
-    if (await page.$('.description')) {
-      const out = await page.evaluate(() => document.querySelector('.description').innerText);
+    await page.waitFor('.attend-box-body, .form-error');  // wait for .attend-box-body or .errmsg.
+    if (await page.$('.attend-box-body')) {
+      if (program.debug) { console.log('INFO: Successfully authorized.'); }
+      const out = await page.evaluate(() => document.querySelector('.attend-box-body').innerText);
       console.log(out);
-    } else if (await page.$('.errmsg')) {
-      const out = await page.evaluate(() => document.querySelector('.errmsg').innerText);
+    } else if (await page.$('.form-error')) {
+      if (program.debug) { console.log('FAILED: Wrong Username or Password.'); }
+      const out = await page.evaluate(() => document.querySelector('.form-error').innerText);
+      //const out = await page.evaluate(() => document.querySelector('.form-error').textContent);
       console.log(out);
     } else {
       console.log('Unknown error');
