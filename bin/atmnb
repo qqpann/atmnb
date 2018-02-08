@@ -59,7 +59,7 @@ const password = auth.password;
     console.log('Unknown error');
   }
 
-  await page.screenshot({path: './atmnb-node.png', fullPage: true});
+  //await page.screenshot({path: './atmnb-node.png', fullPage: true});
   br.close();
   
 })();
