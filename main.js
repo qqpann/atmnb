@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 const program = require('commander');
 const puppeteer = require('puppeteer');
+const getAuthenticate = require('./authenticate');
 
 program
   .option('-v, --view', 'View mode')
@@ -15,20 +16,9 @@ if (program.view) {
   if (program.debug) { console.log('INFO: Non Headless Mode'); }
 }
 
-let username = '';
-let password = '';
-if (process.env.UTID_13 && process.env.UTID_PASS) {
-  if (program.debug) { console.log('INFO: Using UTID_13'); }
-  username = process.env.UTID_13;
-  password = process.env.UTID_PASS;
-} else if (process.env.MANABA_USERNAME && process.env.MANABA_PASSWORD) {
-  if (program.debug) { console.log('INFO: Using MANABA_USERNAME'); }
-  username = process.env.MANABA_USERNAME;
-  password = process.env.MANABA_PASSWORD;
-} else {
-  console.log('NOTFOUND: Plsase setup env username and password.');
-  return 1;
-}
+const auth = getAuthenticate(debug=program.debug);
+const username = auth.username;
+const password = auth.password;
 
 (async() => {
   
