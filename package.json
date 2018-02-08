@@ -1,6 +1,6 @@
 {
   "name": "atmnb",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Attend Manaba at Univ. Tsukuba from CLI",
   "bin": {
     "atmnb": "bin/atmnb"
