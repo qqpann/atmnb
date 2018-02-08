@@ -2,7 +2,10 @@
   "name": "atmnb",
   "version": "1.0.0",
   "description": "Attend Manaba at Univ. Tsukuba from CLI",
-  "main": "main.js",
+  "bin": {
+    "atmnb": "bin/atmnb"
+  },
+  "preferGlobal": true,
   "dependencies": {
     "commander": "^2.14.1",
     "puppeteer": "^1.0.0"
