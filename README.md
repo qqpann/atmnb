@@ -1,12 +1,20 @@
 # atmnb
-[![Build Status](https://travis-ci.org/qiugits/atmnb.svg?branch=master)](https://travis-ci.org/qiugits/atmnb)\
-manaba出席のコマンドラインツール、node.js版です。\
-描画しないため、速く処理をすることができます。
+[![Build Status](https://travis-ci.org/qiugits/atmnb.svg?branch=master)](https://travis-ci.org/qiugits/atmnb)
+[![npm](https://img.shields.io/npm/v/atmnb.svg)](https://www.npmjs.com/package/atmnb)
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg)](./LICENSE)
+
+manaba出席のコマンドラインツール、Node.js版です。\
+[GoogleChrome/puppeteer][puppeteer]を利用しています。
+
+## Dependency
+- `Node.js`, `npm`
+- npm installしたbinにパスが通っていること
+- 環境変数に`MANABA_USERNAME`と`MANABA_PASSWORD`、または`UTID_13`と`UTID_PASS`のいずれかの組み合わせでmanabaのユーザ名とパスワードを用意すること
 
 ## Install
 
 ```terminal
-npm install atmnb
+$ npm install atmnb
 ```
 
 ## Usage
@@ -15,11 +23,22 @@ npm install atmnb
 $ atmnb 1234567
 ```
 
-[npm ~qiugits](https://www.npmjs.com/~qiugits)
 
-### Relative projects
+`-v`オプションでHeadless Chromeモードを解除して描画させることができます。
+
+```terminal
+$ atmnb -v 1234567
+```
+
+
+---
+
+
+### Related projects
 [shuuji3/manaba-attend](https://github.com/shuuji3/manaba-attend)\
 [kajyuuen/Papercut-Submit](https://github.com/kajyuuen/Papercut-Submit)
 
----
-#### [統一認証システム](https://account.tsukuba.ac.jp/list.html)
+#### Reference [統一認証システム](https://account.tsukuba.ac.jp/list.html)
+
+
+[puppeteer]: https://github.com/GoogleChrome/puppeteer
