@@ -6,6 +6,8 @@
 manaba出席のコマンドラインツール、Node.js版です。\
 [GoogleChrome/puppeteer][puppeteer]を利用しています。
 
+> Inspired by [shuuji3/manaba-attend](https://github.com/shuuji3/manaba-attend)
+
 ## Dependency
 - `Node.js`, `npm`
 - npm installしたbinにパスが通っていること
@@ -35,10 +37,10 @@ $ atmnb -v 1234567
 
 
 ### Related projects
-[shuuji3/manaba-attend](https://github.com/shuuji3/manaba-attend)\
-[kajyuuen/Papercut-Submit](https://github.com/kajyuuen/Papercut-Submit)
+[qiugits/utprint](https://github.com/qiugits/utprint) 同じくコマンドラインから、全学計算機のプリンタにプリントするツール
 
-#### Reference [統一認証システム](https://account.tsukuba.ac.jp/list.html)
+### Reference
+[統一認証システム](https://account.tsukuba.ac.jp/list.html)
 
 
 [puppeteer]: https://github.com/GoogleChrome/puppeteer
