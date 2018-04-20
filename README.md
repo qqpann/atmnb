@@ -1,9 +1,11 @@
 # atmnb
 [![Build Status](https://travis-ci.org/qiugits/atmnb.svg?branch=master)](https://travis-ci.org/qiugits/atmnb)
 [![npm](https://img.shields.io/npm/v/atmnb.svg)](https://www.npmjs.com/package/atmnb)
+[![npm](https://img.shields.io/npm/dt/atmnb.svg)](https://www.npmjs.com/package/atmnb)
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](./LICENSE)
 
 manaba出席のコマンドラインツール、Node.js版です。\
+ターミナルから0.25秒程度で出席をすることができます。\
 [GoogleChrome/puppeteer][puppeteer]を利用しています。
 
 > Inspired by [shuuji3/manaba-attend](https://github.com/shuuji3/manaba-attend)
