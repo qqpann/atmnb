@@ -1,3 +1,7 @@
+Check out atmnb implemented desktop app: TsukubaMe → https://tsukuba-me.github.io
+
+---
+
 # atmnb
 [![Build Status](https://travis-ci.org/qiugits/atmnb.svg?branch=master)](https://travis-ci.org/qiugits/atmnb)
 [![npm](https://img.shields.io/npm/v/atmnb.svg)](https://www.npmjs.com/package/atmnb)
